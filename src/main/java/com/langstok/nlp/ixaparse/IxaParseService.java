@@ -71,6 +71,7 @@ public class IxaParseService {
 
 	@PostConstruct
 	private void init(){
+		this.model = properties.getModel();
 		this.annotator = new Annotate(getAnnotateProperties());
 	}
 
