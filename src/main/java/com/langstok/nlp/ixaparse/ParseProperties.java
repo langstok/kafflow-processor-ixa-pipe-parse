@@ -14,13 +14,13 @@ public class ParseProperties {
 	/**
 	 * Choose parsing model
 	 */
-	private String model = "../../models/parse-models/en-parser-chunking.bin";
+	private String model = "../../../models/parse-models/en-parser-chunking.bin";
 	
 
 	/**
 	 * Choose between Collins or Semantic HeadFinder. "collins", "sem", "no" 
 	 */
-	private String headFinder = "no";
+	private String headFinder = "sem";
 
 
 	public String getLanguage() {

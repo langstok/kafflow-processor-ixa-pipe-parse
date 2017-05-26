@@ -22,7 +22,7 @@ import ixa.kaflib.KAFDocument;
 @EnableConfigurationProperties(ParseProperties.class)
 public class IxaParseService {
 
-	private final static Logger LOGGER = Logger.getLogger(IxaParseService.class);
+	private final static Logger logger = Logger.getLogger(IxaParseService.class);
 
 	@Autowired
 	private ParseProperties properties;
@@ -37,17 +37,17 @@ public class IxaParseService {
 
 
 	public KAFDocument transform(KAFDocument kaf){
-		LOGGER.info("KAF PARSE started (publicId / uri): " 
+		logger.info("KAF PARSE started (publicId / uri): "
 				+ kaf.getPublic().publicId + " / " + kaf.getPublic().uri);
 		StopWatch stopWatch = new StopWatch();
 		stopWatch.start();
 		try {
 			kaf = annotate(kaf);
 		} catch (IOException e) {
-			LOGGER.error("IOException for kaf: " + kaf.getPublic().publicId);
+			logger.error("IOException for kaf: " + kaf.getPublic().publicId);
 		}
 		stopWatch.stop();
-		LOGGER.info("KAF PARSE finished in " 
+		logger.info("KAF PARSE finished in "
 				+ stopWatch.getTotalTimeMillis() + " ms for publicId " + kaf.getPublic().publicId);
 		return kaf;
 	}
@@ -71,8 +71,11 @@ public class IxaParseService {
 
 	@PostConstruct
 	private void init(){
+		logger.info("Load IXA-PARSE annotator ... ");
 		this.model = properties.getModel();
 		this.annotator = new Annotate(getAnnotateProperties());
+		logger.info("IXA-PARSE annotator loaded ");
+
 	}
 
 }
