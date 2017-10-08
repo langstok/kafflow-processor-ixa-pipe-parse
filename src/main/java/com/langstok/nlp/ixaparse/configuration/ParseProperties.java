@@ -2,7 +2,7 @@ package com.langstok.nlp.ixaparse.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties
+@ConfigurationProperties(prefix="ixa.pipe.parse")
 public class ParseProperties {
 	
 	/**
@@ -14,7 +14,7 @@ public class ParseProperties {
 	/**
 	 * Choose parsing model
 	 */
-	private String model = "../../../models/parse-models/en-parser-chunking.bin";
+	private String model;
 	
 
 	/**
