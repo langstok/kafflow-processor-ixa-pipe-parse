@@ -5,6 +5,7 @@ import java.util.Properties;
 
 import javax.annotation.PostConstruct;
 
+import com.langstok.nlp.ixaparse.configuration.ParseProperties;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;

@@ -1,8 +1,8 @@
-package com.langstok.nlp.ixaparse;
+package com.langstok.nlp.ixaparse.configuration;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
 
-@ConfigurationProperties(prefix="ixaparse")
+@ConfigurationProperties
 public class ParseProperties {
 	
 	/**
