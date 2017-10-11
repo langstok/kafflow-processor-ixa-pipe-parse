@@ -25,7 +25,6 @@ public class IxaParseService {
 
 	private final static Logger logger = Logger.getLogger(IxaParseService.class);
 
-	@Autowired
 	private ParseProperties properties;
 
 	private final String version = CLI.class.getPackage().getImplementationVersion();
@@ -36,6 +35,10 @@ public class IxaParseService {
 
 	private Annotate annotator;
 
+	public IxaParseService(ParseProperties properties) {
+		this.properties = properties;
+		init();
+	}
 
 	public KAFDocument transform(KAFDocument kaf){
 		logger.info("KAF PARSE started (publicId / uri): "
@@ -70,13 +73,11 @@ public class IxaParseService {
 		return annotateProperties;
 	}
 
-	@PostConstruct
 	private void init(){
 		logger.info("Load IXA-PARSE annotator ... ");
 		this.model = properties.getModel();
 		this.annotator = new Annotate(getAnnotateProperties());
 		logger.info("IXA-PARSE annotator loaded ");
-
 	}
 
 }
